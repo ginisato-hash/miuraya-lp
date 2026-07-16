@@ -1,0 +1,17 @@
+[
+  {
+    "id": "shimoyu",
+    "name": "下湯共同浴場",
+    "adjacentToMiuraya": true
+  },
+  {
+    "id": "kamiyu",
+    "name": "上湯共同浴場",
+    "adjacentToMiuraya": false
+  },
+  {
+    "id": "kawarayu",
+    "name": "川原湯共同浴場",
+    "adjacentToMiuraya": false
+  }
+]

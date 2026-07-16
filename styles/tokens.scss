@@ -1,0 +1,38 @@
+// デザイン方向性確定（Design handoff: MIURAYA Official LP ファーストビュー統合案より採用）
+@use "sass:map";
+
+$breakpoints: (
+  "xs": 360px,
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1200px,
+);
+
+:root {
+  --color-bg: oklch(97% 0.012 75);
+  --color-bg-alt: oklch(94% 0.014 73);
+  --color-bg-dark: oklch(15% 0.02 45);
+  --color-text: oklch(22% 0.014 55);
+  --color-text-muted: oklch(46% 0.02 55);
+  --color-accent: #8c3b2b;
+  --color-border: oklch(85% 0.014 68);
+
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1.25rem;
+  --space-md: 2rem;
+  --space-lg: 3.5rem;
+  --space-xl: 5.5rem;
+  --space-2xl: 8rem;
+  --space-section: clamp(4rem, 9vw, 6.5rem);
+
+  --content-max-width: 72rem;
+  --content-padding-inline: var(--space-sm);
+
+  --motion-duration-fast: 0.15s;
+  --motion-duration-base: 0.3s;
+  --motion-easing: ease;
+
+  --focus-ring-color: var(--color-accent);
+  --focus-ring-width: 3px;
+}

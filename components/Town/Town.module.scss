@@ -1,0 +1,32 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+}
+
+.inner {
+  @include mixins.section-inner;
+}
+
+.bathhouseList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  font-size: 1rem;
+}
+
+.note {
+  color: var(--color-text-muted);
+  margin-inline-start: var(--space-2xs);
+}
+
+.caution {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.emphasis {
+  font-size: 1rem;
+  font-weight: 600;
+}

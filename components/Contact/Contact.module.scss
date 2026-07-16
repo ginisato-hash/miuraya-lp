@@ -1,0 +1,30 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+
+  background-color: var(--color-bg-alt);
+}
+
+.inner {
+  @include mixins.section-inner;
+}
+
+.mailButton {
+  align-self: flex-start;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+  font-size: 1rem;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.emailText {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  user-select: text;
+}

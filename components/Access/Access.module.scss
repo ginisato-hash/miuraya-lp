@@ -1,0 +1,15 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+}
+
+.inner {
+  @include mixins.section-inner;
+}
+
+.address {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: var(--line-height-body);
+}

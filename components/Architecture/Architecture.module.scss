@@ -1,0 +1,11 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+
+  background-color: var(--color-bg-alt);
+}
+
+.inner {
+  @include mixins.section-inner;
+}
