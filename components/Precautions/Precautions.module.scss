@@ -50,7 +50,10 @@
 
   p {
     font-size: 1rem;
-    max-width: var(--prose-max-width);
+    // このセクションは番号・見出し・本文が同じgrid列を共有するため、
+    // 本文だけ共通のprose幅で切ると見出し・罫線の右端と揃わなくなる。
+    // grid列(1fr)の幅をそのまま使い、右端をh3・罫線と一致させる。
+    max-width: none;
   }
 
   @include mixins.breakpoint("md") {
