@@ -137,6 +137,10 @@ export const en: Dictionary = {
     photoAlt:
       "The shared space on the ground floor, with a refrigerator, microwave, hot water and tea bags",
     caption: "Ground-floor shared space",
+    showerLabel: "Shared shower",
+    showerAlt: "Shared shower room inside Miuraya, with a sink area in the same space",
+    toiletLabel: "Shared toilet",
+    toiletAlt: "Shared toilet inside Miuraya",
   },
   bar: {
     heading: "Café & Cocktail Bar — Kansoshitsu",

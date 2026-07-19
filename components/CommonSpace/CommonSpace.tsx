@@ -31,6 +31,28 @@ export default function CommonSpace({ locale }: { locale: Locale }) {
             sizes="(min-width: 768px) 70vw, 100vw"
           />
           <p className={styles.caption}>{dict.commonSpace.caption}</p>
+          <div className={styles.facilityGrid}>
+            <div className={styles.facilityItem}>
+              <Image
+                src="/images/photos/shared-shower.jpg"
+                alt={dict.commonSpace.showerAlt}
+                width={1428}
+                height={2000}
+                sizes="(min-width: 768px) 33vw, 90vw"
+              />
+              <p className={styles.facilityCaption}>{dict.commonSpace.showerLabel}</p>
+            </div>
+            <div className={styles.facilityItem}>
+              <Image
+                src="/images/photos/shared-toilet.jpg"
+                alt={dict.commonSpace.toiletAlt}
+                width={1428}
+                height={2000}
+                sizes="(min-width: 768px) 33vw, 90vw"
+              />
+              <p className={styles.facilityCaption}>{dict.commonSpace.toiletLabel}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

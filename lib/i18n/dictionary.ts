@@ -91,6 +91,10 @@ export interface Dictionary {
     paragraphs: string[];
     photoAlt: string;
     caption: string;
+    showerLabel: string;
+    showerAlt: string;
+    toiletLabel: string;
+    toiletAlt: string;
   };
   bar: {
     heading: string;

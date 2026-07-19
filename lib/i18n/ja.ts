@@ -124,6 +124,10 @@ export const ja: Dictionary = {
     ],
     photoAlt: "1階の共用スペース。冷蔵庫・電子レンジ・お湯・お茶パックが置かれた一角",
     caption: "1階共用スペース",
+    showerLabel: "共用シャワー",
+    showerAlt: "三浦屋館内の共用シャワールーム。同じ空間に洗面台もある",
+    toiletLabel: "共用トイレ",
+    toiletAlt: "三浦屋館内の共用トイレ",
   },
   bar: {
     heading: "喫茶・カクテルバー　乾燥室",

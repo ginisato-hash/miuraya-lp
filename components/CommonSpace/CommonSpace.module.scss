@@ -26,3 +26,29 @@
   font-size: 0.875rem;
   color: var(--color-text-muted);
 }
+
+.facilityGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-block-start: var(--space-sm);
+
+  @include mixins.breakpoint("md") {
+    flex-direction: row;
+  }
+}
+
+.facilityItem {
+  flex: 1 1 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.facilityCaption {
+  margin-block-start: var(--space-2xs);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
