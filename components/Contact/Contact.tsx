@@ -3,6 +3,7 @@ import type { SiteInfo } from "@/types/site";
 import { getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import JaText from "@/components/JaText/JaText";
+import EmailCopyButton from "@/components/EmailCopyButton/EmailCopyButton";
 import styles from "./Contact.module.scss";
 
 const siteInfo: SiteInfo = site;
@@ -26,6 +27,11 @@ export default function Contact({ locale }: { locale: Locale }) {
             {dict.contact.mailButtonLabel}
           </a>
           <p className={styles.emailText}>{siteInfo.contactEmail}</p>
+          <EmailCopyButton
+            email={siteInfo.contactEmail}
+            label={dict.contact.copyButtonLabel}
+            copiedLabel={dict.contact.copiedLabel}
+          />
         </div>
       </div>
     </section>

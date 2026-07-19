@@ -1,0 +1,18 @@
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}

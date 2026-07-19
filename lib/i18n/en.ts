@@ -217,5 +217,7 @@ export const en: Dictionary = {
       "Number of guests:",
       "",
     ],
+    copyButtonLabel: "Copy email address",
+    copiedLabel: "Email address copied",
   },
 };

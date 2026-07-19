@@ -129,5 +129,7 @@ export interface Dictionary {
     mailButtonLabel: string;
     mailSubject: string;
     mailBodyLines: string[];
+    copyButtonLabel: string;
+    copiedLabel: string;
   };
 }

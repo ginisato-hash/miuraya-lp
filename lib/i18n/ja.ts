@@ -203,5 +203,7 @@ export const ja: Dictionary = {
       "宿泊予定人数：",
       "",
     ],
+    copyButtonLabel: "メールアドレスをコピー",
+    copiedLabel: "メールアドレスをコピーしました",
   },
 };
