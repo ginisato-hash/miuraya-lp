@@ -23,18 +23,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-2xs);
-  padding-block: var(--space-lg) 0;
+  padding-block: var(--space-md);
   border-block-start: 1px solid var(--color-text-muted);
-
-  &:first-child {
-    padding-block-start: var(--space-md);
-  }
-
-  // 「客室環境について(冷房・音)」と「滞在方式について(共用設備・セルフ・浴衣)」の
-  // 2つの意味的グループを、罫線を増やさず余白の強弱だけで示す。
-  &:nth-child(3) {
-    margin-block-start: var(--space-md);
-  }
 
   &::before {
     content: counter(precaution, decimal-leading-zero);
