@@ -1,0 +1,77 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+
+  background-color: var(--color-bg-alt);
+}
+
+.inner {
+  @include mixins.container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.emphasis {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.bathhouseList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  font-size: 1rem;
+}
+
+.note {
+  color: var(--color-text-muted);
+  margin-inline-start: var(--space-2xs);
+}
+
+.voucher {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-block: var(--space-xs);
+
+  @include mixins.breakpoint("md") {
+    flex-direction: row;
+  }
+}
+
+.photoMain {
+  flex: 5 1 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.photoSub {
+  flex: 3 1 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.caption {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.caution {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}

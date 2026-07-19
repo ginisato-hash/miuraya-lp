@@ -1,0 +1,23 @@
+[
+  {
+    "id": "room-6jo",
+    "tatamiSize": 6,
+    "capacity": 1,
+    "roomCount": 2,
+    "hasCooling": false
+  },
+  {
+    "id": "room-8jo",
+    "tatamiSize": 8,
+    "capacity": 2,
+    "roomCount": 4,
+    "hasCooling": false
+  },
+  {
+    "id": "room-10jo",
+    "tatamiSize": 10,
+    "capacity": 3,
+    "roomCount": 1,
+    "hasCooling": false
+  }
+]

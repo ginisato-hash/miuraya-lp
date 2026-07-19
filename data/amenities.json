@@ -1,0 +1,20 @@
+[
+  {
+    "id": "bath-towel",
+    "name": "バスタオル",
+    "available": true,
+    "note": "各客室に用意"
+  },
+  {
+    "id": "toothbrush",
+    "name": "歯ブラシ",
+    "available": true,
+    "note": "リクエストベースで提供"
+  },
+  {
+    "id": "yukata",
+    "name": "浴衣",
+    "available": false,
+    "note": "用意なし"
+  }
+]

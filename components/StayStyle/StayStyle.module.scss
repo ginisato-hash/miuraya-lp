@@ -1,0 +1,60 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+}
+
+.inner {
+  @include mixins.container;
+}
+
+.lead {
+  font-size: 1rem;
+  margin-block-start: var(--space-sm);
+}
+
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-block-start: var(--space-md);
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--color-border);
+
+  @include mixins.breakpoint("md") {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex: 1 1 0;
+
+  @include mixins.breakpoint("md") {
+    padding-inline-start: var(--space-md);
+    border-inline-start: 1px solid var(--color-border);
+
+    &:first-child {
+      padding-inline-start: 0;
+      border-inline-start: none;
+    }
+  }
+
+  h3 {
+    margin-block-start: var(--space-2xs);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.stepNumber {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}

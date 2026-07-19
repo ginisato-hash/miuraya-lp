@@ -1,0 +1,20 @@
+export type SiteInfo = {
+  name: string;
+  nameEn: string;
+  nameEnFull: string;
+  postalCode: string;
+  prefecture: string;
+  prefectureEn: string;
+  addressLine: string;
+  addressLineEn: string;
+  area: string;
+  areaEn: string;
+  operator: string;
+  operatorEn: string;
+  contactEmail: string;
+  roomCount: number;
+  buildingDescription: string;
+  buildingDescriptionEn: string;
+  planType: string;
+  planTypeEn: string;
+};
