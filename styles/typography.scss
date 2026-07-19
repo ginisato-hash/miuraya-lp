@@ -47,3 +47,24 @@ h3 {
 p {
   font-size: var(--font-size-body);
 }
+
+// 対応ブラウザ(Chrome/Edge/Safari最新版)では、本文は行末の孤立語を避け、
+// 見出しは行の長さを均等に近づける。非対応ブラウザでは通常の折り返しにフォールバックする。
+p,
+li {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+// 日本語は行区切り規則(禁則処理)を厳格側にし、英数字用のoverflow-wrap/word-breakの
+// 上書きで文の途中から強制的に折り返されることを防ぐ。
+html[lang="ja"] :is(p, li) {
+  line-break: strict;
+  overflow-wrap: normal;
+  word-break: normal;
+}
