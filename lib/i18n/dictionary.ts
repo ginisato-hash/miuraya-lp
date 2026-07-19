@@ -52,7 +52,7 @@ export interface Dictionary {
   };
   architecture: {
     heading: string;
-    body: string;
+    paragraphs: string[];
     photoAltStaircase: string;
     photoAltCorridor: string;
   };
@@ -91,6 +91,10 @@ export interface Dictionary {
     paragraphs: string[];
     photoAlt: string;
     caption: string;
+    showerLabel: string;
+    showerAlt: string;
+    toiletLabel: string;
+    toiletAlt: string;
   };
   bar: {
     heading: string;

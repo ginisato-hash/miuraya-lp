@@ -16,9 +16,11 @@ export default function Architecture({ locale }: { locale: Locale }) {
       <div className={styles.inner}>
         <div className="prose" data-reveal>
           <h2 id="architecture-heading">{dict.architecture.heading}</h2>
-          <p>
-            <JaText text={dict.architecture.body} locale={locale} />
-          </p>
+          {dict.architecture.paragraphs.map((paragraph) => (
+            <p key={paragraph}>
+              <JaText text={paragraph} locale={locale} />
+            </p>
+          ))}
         </div>
         <div className={styles.gallery} data-reveal>
           <div className={styles.photoItem}>

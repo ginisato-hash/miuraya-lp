@@ -48,7 +48,7 @@ export const en: Dictionary = {
       },
       {
         label: "Facilities",
-        value: "No air conditioning; sound may carry (wooden building)",
+        value: "Heating provided; no air conditioning; sound may carry (wooden building)",
       },
       { label: "Check-in", value: "Self check-in / self check-out" },
     ],
@@ -64,7 +64,10 @@ export const en: Dictionary = {
   },
   architecture: {
     heading: "The Building and Time",
-    body: "A wooden building that has carried more than 70 years with it. Rather than rebuilding it anew, we continue to use it as a guesthouse today, preserving the time it has accumulated.",
+    paragraphs: [
+      "The building is more than 70 years old. Its original timber structure, fittings, and warm atmosphere have been retained, while the interior has been renovated for the needs of a present-day stay.",
+      "Rather than preserving everything unchanged or replacing everything with something new, Miuraya carries its history forward as a practical base for experiencing the onsen town today.",
+    ],
     photoAltStaircase: "Wooden staircase with light coming in through the window",
     photoAltCorridor:
       "Corridor inside the building, with a painting of Takayu Street on the wall",
@@ -134,6 +137,10 @@ export const en: Dictionary = {
     photoAlt:
       "The shared space on the ground floor, with a refrigerator, microwave, hot water and tea bags",
     caption: "Ground-floor shared space",
+    showerLabel: "Shared shower",
+    showerAlt: "Shared shower room inside Miuraya, with a sink area in the same space",
+    toiletLabel: "Shared toilet",
+    toiletAlt: "Shared toilet inside Miuraya",
   },
   bar: {
     heading: "Café & Cocktail Bar — Kansoshitsu",
@@ -166,8 +173,8 @@ export const en: Dictionary = {
     items: [
       {
         id: "cooling",
-        heading: "About Air Conditioning",
-        body: "Zao Onsen is a hot spring area with sulphur in the water, and equipment here is prone to corrosion, so guest rooms at Miuraya do not have air conditioning. In summer, please make use of the screens, natural ventilation, and electric fans provided. If you are sensitive to heat or require air conditioning, please keep this in mind before booking.",
+        heading: "About Heating and Air Conditioning",
+        body: "Heating is provided throughout the property for a comfortable winter stay. Zao Onsen is a hot spring area with sulphur in the water, and equipment here is prone to corrosion, so guest rooms at Miuraya do not have air conditioning. In summer, please make use of the screens, natural ventilation, and electric fans provided. If you are sensitive to heat or require air conditioning, please keep this in mind before booking.",
       },
       {
         id: "sound",
