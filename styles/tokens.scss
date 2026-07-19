@@ -28,6 +28,7 @@ $breakpoints: (
 
   --content-max-width: 72rem;
   --content-padding-inline: var(--space-sm);
+  // 英語(ラテン文字)の可読行長(目安60〜75文字)に合わせた既定値。
   --prose-max-width: 40rem;
 
   --motion-duration-fast: 0.15s;
@@ -37,4 +38,11 @@ $breakpoints: (
 
   --focus-ring-color: var(--color-accent);
   --focus-ring-width: 3px;
+}
+
+// 日本語は全角文字1文字がほぼ1em幅のため、英語と同じ40remでは
+// 早すぎる折り返しや孤立語が発生する。日本語ページ(<html lang="ja">)だけ
+// 本文幅を広げ、1行あたり45文字前後を確保する。
+html[lang="ja"] {
+  --prose-max-width: 48rem;
 }
