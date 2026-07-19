@@ -10,6 +10,15 @@
   @include mixins.section-inner;
 }
 
+// モバイルでは自然折り返しに任せ、tablet以上でのみ意図した位置で改行する。
+.leadBreak {
+  display: none;
+
+  @include mixins.breakpoint("md") {
+    display: block;
+  }
+}
+
 .gallery {
   display: flex;
   flex-direction: column;
