@@ -52,7 +52,7 @@ export interface Dictionary {
   };
   architecture: {
     heading: string;
-    body: string;
+    paragraphs: string[];
     photoAltStaircase: string;
     photoAltCorridor: string;
   };
