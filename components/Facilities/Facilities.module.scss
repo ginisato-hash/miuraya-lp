@@ -1,9 +1,0 @@
-@use "../../styles/mixins";
-
-.section {
-  @include mixins.section-padding;
-}
-
-.inner {
-  @include mixins.section-inner;
-}

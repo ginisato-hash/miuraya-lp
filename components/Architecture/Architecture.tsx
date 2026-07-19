@@ -1,6 +1,12 @@
+import Image from "next/image";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import JaText from "@/components/JaText/JaText";
 import styles from "./Architecture.module.scss";
 
-export default function Architecture() {
+export default function Architecture({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section
       id="architecture"
@@ -8,10 +14,32 @@ export default function Architecture() {
       aria-labelledby="architecture-heading"
     >
       <div className={styles.inner}>
-        <h2 id="architecture-heading">建物と時間</h2>
-        <p>
-          築70年以上の歳月を重ねてきた木造の建物。新しくつくり替えるのではなく、建物が重ねてきた時間を残しながら、現在の宿として使い続けています。
-        </p>
+        <div className="prose" data-reveal>
+          <h2 id="architecture-heading">{dict.architecture.heading}</h2>
+          <p>
+            <JaText text={dict.architecture.body} locale={locale} />
+          </p>
+        </div>
+        <div className={styles.gallery} data-reveal>
+          <div className={styles.photoItem}>
+            <Image
+              src="/images/photos/staircase.jpg"
+              alt={dict.architecture.photoAltStaircase}
+              width={2000}
+              height={1333}
+              sizes="(min-width: 768px) 35vw, 90vw"
+            />
+          </div>
+          <div className={styles.photoItem}>
+            <Image
+              src="/images/photos/corridor-painting.jpg"
+              alt={dict.architecture.photoAltCorridor}
+              width={2000}
+              height={1333}
+              sizes="(min-width: 768px) 35vw, 90vw"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -10,15 +10,13 @@
   @include mixins.container;
 }
 
-.kicker {
-  @include mixins.kicker;
-
-  margin-block-end: var(--space-xs);
+.lead {
+  font-size: 1.0625rem;
 }
 
 .roomList {
   list-style: none;
-  margin-block-start: var(--space-sm);
+  margin-block-start: var(--space-md);
 }
 
 .roomRow {
@@ -33,7 +31,7 @@
   }
 
   @include mixins.breakpoint("sm") {
-    grid-template-columns: 2fr repeat(3, 1fr);
+    grid-template-columns: 2fr repeat(2, 1fr);
     align-items: baseline;
     gap: var(--space-md);
   }
@@ -76,7 +74,7 @@
   grid-template-columns: 1fr;
 
   @include mixins.breakpoint("md") {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -84,6 +82,12 @@
   img {
     width: 100%;
     height: auto;
+  }
+
+  @include mixins.breakpoint("md") {
+    &[data-featured="true"] {
+      grid-column: span 2;
+    }
   }
 }
 

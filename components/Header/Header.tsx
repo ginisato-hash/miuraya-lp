@@ -5,18 +5,27 @@ import Link from "next/link";
 import Image from "next/image";
 import site from "@/data/site.json";
 import type { SiteInfo } from "@/types/site";
+import { getDictionary, otherLocale, localePath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import styles from "./Header.module.scss";
 
 const siteInfo: SiteInfo = site;
 
-const navItems = [
-  { href: "#about", label: "三浦屋について" },
-  { href: "#rooms", label: "客室" },
-  { href: "#precautions", label: "ご宿泊前に" },
-  { href: "#access", label: "アクセス" },
-];
+export default function Header({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const targetLocale = otherLocale(locale);
+  const targetPath = localePath(targetLocale);
 
-export default function Header() {
+  const navItems = [
+    { href: "#about", label: dict.header.nav.about },
+    { href: "#town", label: dict.header.nav.town },
+    { href: "#rooms", label: dict.header.nav.rooms },
+    { href: "#kansoshitsu", label: dict.header.nav.kansoshitsu },
+    { href: "#precautions", label: dict.header.nav.precautions },
+    { href: "#access", label: dict.header.nav.access },
+    { href: "#reservation", label: dict.header.nav.reservation },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const menuId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -64,22 +73,39 @@ export default function Header() {
     };
   }, [isOpen]);
 
+  const handleLangSwitchClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      event.preventDefault();
+      window.location.href = targetPath + window.location.hash;
+    }
+  };
+
+  const isEn = locale === "en";
+  const logoSrc = isEn
+    ? "/images/logo/miuraya-logo-dark-full.svg"
+    : "/images/logo/miuraya-logo-dark-mark.svg";
+  const logoWrapClass = isEn ? styles.brandLogoWrapFull : styles.brandLogoWrap;
+  const logoImgClass = isEn ? styles.brandLogoFull : styles.brandLogo;
+  // 英語版はナビ項目+言語切り替えの分だけ横幅が必要なため、デスクトップ表示の
+  // 切り替え幅をlgまで引き上げる(日本語版は既存のmdのまま変更しない)。
+  const withWide = (base: string) => (isEn ? `${base} ${styles.wide}` : base);
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.brand}>
-          <span className={styles.brandLogoWrap}>
+        <Link href={localePath(locale)} className={styles.brand}>
+          <span className={logoWrapClass}>
             <Image
-              src="/images/logo/miuraya-logo-dark-mark.svg"
-              alt={siteInfo.name}
+              src={logoSrc}
+              alt={locale === "en" ? siteInfo.nameEnFull : siteInfo.name}
               width={1123}
               height={794}
-              className={styles.brandLogo}
+              className={logoImgClass}
               priority
             />
           </span>
         </Link>
-        <nav className={styles.nav} aria-label="サイト内ナビゲーション">
+        <nav className={withWide(styles.nav)} aria-label={dict.header.navAriaLabel}>
           <ul className={styles.navList}>
             {navItems.map((item) => (
               <li key={item.href}>
@@ -88,18 +114,32 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <a className={styles.contactLink} href="#contact">
-          お問い合わせ
-        </a>
+        <div className={styles.actions}>
+          <a className={styles.contactLink} href="#contact">
+            {dict.header.contactLabel}
+          </a>
+          <a
+            className={styles.langSwitch}
+            href={targetPath}
+            hrefLang={targetLocale}
+            lang={targetLocale}
+            aria-label={dict.header.langSwitchAriaLabel}
+            onClick={handleLangSwitchClick}
+          >
+            {dict.header.langSwitchLabel}
+          </a>
+        </div>
         <button
           ref={toggleRef}
           type="button"
-          className={styles.menuButton}
+          className={withWide(styles.menuButton)}
           aria-expanded={isOpen}
           aria-controls={menuId}
           onClick={() => setIsOpen((value) => !value)}
         >
-          <span className="sr-only">{isOpen ? "メニューを閉じる" : "メニューを開く"}</span>
+          <span className="sr-only">
+            {isOpen ? dict.header.menuCloseLabel : dict.header.menuOpenLabel}
+          </span>
           <span className={styles.menuIcon} data-open={isOpen} aria-hidden="true">
             <span data-motion />
             <span data-motion />
@@ -109,12 +149,12 @@ export default function Header() {
       <div
         id={menuId}
         ref={panelRef}
-        className={styles.mobilePanel}
+        className={withWide(styles.mobilePanel)}
         data-open={isOpen}
         data-motion
         role="dialog"
         aria-modal="true"
-        aria-label="サイト内ナビゲーション"
+        aria-label={dict.header.navAriaLabel}
         aria-hidden={!isOpen}
       >
         <ul className={styles.mobileNavList}>
@@ -127,7 +167,21 @@ export default function Header() {
           ))}
           <li>
             <a href="#contact" onClick={closeMenu}>
-              お問い合わせ
+              {dict.header.contactLabel}
+            </a>
+          </li>
+          <li>
+            <a
+              href={targetPath}
+              hrefLang={targetLocale}
+              lang={targetLocale}
+              aria-label={dict.header.langSwitchAriaLabel}
+              onClick={(event) => {
+                handleLangSwitchClick(event);
+                closeMenu();
+              }}
+            >
+              {dict.header.langSwitchLabel}
             </a>
           </li>
         </ul>

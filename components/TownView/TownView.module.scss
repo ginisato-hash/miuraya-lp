@@ -1,0 +1,39 @@
+@use "../../styles/mixins";
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.textWrap {
+  @include mixins.container;
+}
+
+.textBlock {
+  p {
+    font-size: 1.0625rem;
+  }
+}
+
+.fullBleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-block: var(--space-lg);
+  overflow: hidden;
+}
+
+.fullBleedImg {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  animation: town-photo-scale 2.4s ease-out both;
+}
+
+@keyframes town-photo-scale {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
+  }
+}

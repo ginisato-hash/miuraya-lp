@@ -6,13 +6,9 @@
 
 .inner {
   @include mixins.container;
-
-  max-width: 67.5rem;
 }
 
-.kicker {
-  @include mixins.kicker;
-
+.heading {
   margin-block-end: var(--space-sm);
 }
 

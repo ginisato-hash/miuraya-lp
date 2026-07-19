@@ -1,0 +1,56 @@
+@use "../../styles/mixins";
+
+.section {
+  @include mixins.section-padding;
+
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg);
+}
+
+.inner {
+  @include mixins.container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.textBlock {
+  p {
+    font-size: 1.0625rem;
+  }
+}
+
+.emphasis {
+  font-weight: 600;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  @include mixins.breakpoint("md") {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.photoLarge {
+  flex: 3 1 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.photoDetail {
+  flex: 1.6 1 0;
+  max-width: 22rem;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

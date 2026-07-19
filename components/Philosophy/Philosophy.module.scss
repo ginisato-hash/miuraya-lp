@@ -7,14 +7,15 @@
 
 .inner {
   @include mixins.container;
+}
 
-  max-width: 48rem;
+.textBlock {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
-.inner h2 {
+.textBlock h2 {
   font-size: var(--font-size-h1);
   line-height: 1.6;
 }

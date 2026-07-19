@@ -1,13 +1,20 @@
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import JaText from "@/components/JaText/JaText";
 import styles from "./About.module.scss";
 
-export default function About() {
+export default function About({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="about" className={styles.section} aria-labelledby="about-heading">
-      <div className={styles.inner}>
-        <h2 id="about-heading">三浦屋について</h2>
-        <p>
-          三浦屋は、蔵王温泉・高湯通りに残る旧旅館を活かして再生した、全7室の素泊まり宿です。外湯へ歩き、温泉街の店に立ち寄り、街を巡るための滞在拠点として運営しています。
-        </p>
+      <div className={styles.inner} data-reveal>
+        <div className="prose">
+          <h2 id="about-heading">{dict.about.heading}</h2>
+          <p>
+            <JaText text={dict.about.body} locale={locale} />
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,20 +1,27 @@
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import JaText from "@/components/JaText/JaText";
 import styles from "./Philosophy.module.scss";
 
-export default function Philosophy() {
+export default function Philosophy({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section className={styles.philosophy} aria-labelledby="philosophy-heading">
       <div className={styles.inner}>
-        <h2 id="philosophy-heading">
-          泊まり、歩き、
-          <br />
-          浸る。
-        </h2>
-        <p className={styles.lead}>
-          三浦屋は、宿の中だけで旅を完結させる場所ではありません。外湯へ歩き、店に立ち寄り、高湯通りを巡る。蔵王温泉の街そのものを楽しむための、小さな滞在拠点です。
-        </p>
-        <div className={styles.rule}>
-          <span className={styles.line} />
-          <span className={styles.label}>STAY. WALK. SOAK.</span>
+        <div className={`${styles.textBlock} prose`} data-reveal>
+          <h2 id="philosophy-heading">
+            {dict.philosophy.headingLines[0]}
+            <br />
+            {dict.philosophy.headingLines[1]}
+          </h2>
+          <p className={styles.lead}>
+            <JaText text={dict.philosophy.lead} locale={locale} />
+          </p>
+          <div className={styles.rule}>
+            <span className={styles.line} />
+            <span className={styles.label}>{dict.philosophy.label}</span>
+          </div>
         </div>
       </div>
     </section>

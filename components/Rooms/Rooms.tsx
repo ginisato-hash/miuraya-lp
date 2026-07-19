@@ -1,60 +1,67 @@
 import Image from "next/image";
-import roomsData from "@/data/rooms.json";
-import type { Room } from "@/types/room";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import JaText from "@/components/JaText/JaText";
 import styles from "./Rooms.module.scss";
-
-const rooms: Room[] = roomsData;
 
 const roomPhotos = [
   { src: "/images/photos/room-a.jpg", width: 1600, height: 1066 },
-  { src: "/images/photos/room-b.jpg", width: 1600, height: 1066 },
+  { src: "/images/photos/room-twin.jpg", width: 1600, height: 1066 },
   { src: "/images/photos/room-c.jpg", width: 1600, height: 1066 },
 ];
 
-export default function Rooms() {
+export default function Rooms({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="rooms" className={styles.section} aria-labelledby="rooms-heading">
       <div className={styles.inner}>
-        <p className={styles.kicker}>05</p>
-        <h2 id="rooms-heading">客室</h2>
-        <ul className={styles.roomList}>
-          {rooms.map((room) => (
+        <div className="prose" data-reveal>
+          <h2 id="rooms-heading">{dict.rooms.heading}</h2>
+          <p className={styles.lead}>
+            <JaText text={dict.rooms.lead} locale={locale} />
+          </p>
+        </div>
+        <ul className={styles.roomList} data-reveal>
+          {dict.rooms.roomTypes.map((room) => (
             <li key={room.id} className={styles.roomRow}>
-              <h3>
-                {room.tatamiSize}畳・{room.capacity}名用
-              </h3>
+              <h3>{room.title}</h3>
               <dl className={styles.roomSpecs}>
                 <div>
-                  <dt>室数</dt>
-                  <dd>{room.roomCount}室</dd>
+                  <dt>{room.roomCountLabel}</dt>
+                  <dd>{room.roomCountValue}</dd>
                 </div>
                 <div>
-                  <dt>定員</dt>
-                  <dd>{room.capacity}名</dd>
-                </div>
-                <div>
-                  <dt>冷房設備</dt>
-                  <dd>{room.hasCooling ? "あり" : "なし"}</dd>
+                  <dt>{room.capacityLabel}</dt>
+                  <dd>{room.capacityValue}</dd>
                 </div>
               </dl>
             </li>
           ))}
         </ul>
-        <div className={styles.gallery}>
+        <div className={styles.gallery} data-reveal>
           <ul className={styles.galleryList}>
-            {roomPhotos.map((photo) => (
-              <li key={photo.src} className={styles.galleryItem}>
+            {roomPhotos.map((photo, index) => (
+              <li
+                key={photo.src}
+                className={styles.galleryItem}
+                data-featured={index === 0}
+              >
                 <Image
                   src={photo.src}
-                  alt="館内の和室の一例"
+                  alt={dict.rooms.photoAlt}
                   width={photo.width}
                   height={photo.height}
-                  sizes="(min-width: 768px) 30vw, 90vw"
+                  sizes={
+                    index === 0
+                      ? "(min-width: 768px) 40vw, 100vw"
+                      : "(min-width: 768px) 27vw, 90vw"
+                  }
                 />
               </li>
             ))}
           </ul>
-          <p className={styles.galleryCaption}>客室の一例</p>
+          <p className={styles.galleryCaption}>{dict.rooms.galleryCaption}</p>
         </div>
       </div>
     </section>

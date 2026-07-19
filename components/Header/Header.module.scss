@@ -35,6 +35,17 @@
   @include mixins.logo-crop-mark-image;
 }
 
+// 英語版: 日本語・英語併記版ロゴ（-full.svg）をクロップせずに表示する。
+.brandLogoWrapFull {
+  @include mixins.logo-full-wrapper;
+
+  height: 40px;
+}
+
+.brandLogoFull {
+  @include mixins.logo-full-image;
+}
+
 .nav {
   display: none;
   flex: 1 1 auto;
@@ -42,6 +53,18 @@
 
   @include mixins.breakpoint("md") {
     display: block;
+  }
+
+  // 英語版: 言語切り替えボタン分の余白が必要なため、デスクトップナビの表示切り替えを
+  // 一段階広い幅(lg)まで引き上げる。日本語版(.wideなし)の表示は変更しない。
+  &.wide {
+    @include mixins.breakpoint("md") {
+      display: none;
+    }
+
+    @include mixins.breakpoint("lg") {
+      display: block;
+    }
   }
 }
 
@@ -58,6 +81,9 @@
     text-decoration: none;
     font-size: 1rem;
     border-block-end: 1px solid transparent;
+    transition:
+      color var(--motion-duration-base) var(--motion-easing),
+      border-block-end-color var(--motion-duration-base) var(--motion-easing);
 
     &:hover {
       color: var(--color-accent);
@@ -66,9 +92,15 @@
   }
 }
 
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .contactLink {
   display: inline-flex;
-  flex: 0 0 auto;
   align-items: center;
   min-height: 44px;
   color: var(--color-accent);
@@ -76,6 +108,28 @@
   text-underline-offset: 0.3em;
   font-size: 1rem;
   white-space: nowrap;
+}
+
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: var(--space-2xs);
+  color: var(--color-text);
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color var(--motion-duration-base) var(--motion-easing),
+    border-color var(--motion-duration-base) var(--motion-easing);
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
 }
 
 .menuButton {
@@ -91,6 +145,16 @@
 
   @include mixins.breakpoint("md") {
     display: none;
+  }
+
+  &.wide {
+    @include mixins.breakpoint("md") {
+      display: flex;
+    }
+
+    @include mixins.breakpoint("lg") {
+      display: none;
+    }
   }
 }
 
@@ -145,6 +209,16 @@
 
   @include mixins.breakpoint("md") {
     display: none;
+  }
+
+  &.wide {
+    @include mixins.breakpoint("md") {
+      display: block;
+    }
+
+    @include mixins.breakpoint("lg") {
+      display: none;
+    }
   }
 
   &[data-open="true"] {

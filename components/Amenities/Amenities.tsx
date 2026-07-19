@@ -1,10 +1,11 @@
-import amenitiesData from "@/data/amenities.json";
-import type { Amenity } from "@/types/amenity";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import JaText from "@/components/JaText/JaText";
 import styles from "./Amenities.module.scss";
 
-const amenities: Amenity[] = amenitiesData;
+export default function Amenities({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
 
-export default function Amenities() {
   return (
     <section
       id="amenities"
@@ -12,18 +13,12 @@ export default function Amenities() {
       aria-labelledby="amenities-heading"
     >
       <div className={styles.inner}>
-        <h2 id="amenities-heading">アメニティ</h2>
-        <p>
-          各客室にバスタオルをご用意しています。歯ブラシはご希望の方へリクエストベースで提供します。浴衣のご用意はありません。
-        </p>
-        <dl className={styles.amenityList}>
-          {amenities.map((amenity) => (
-            <div key={amenity.id}>
-              <dt>{amenity.name}</dt>
-              <dd>{amenity.available ? amenity.note : "なし"}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="prose" data-reveal>
+          <h2 id="amenities-heading">{dict.amenities.heading}</h2>
+          <p className={styles.lead}>
+            <JaText text={dict.amenities.lead} locale={locale} />
+          </p>
+        </div>
       </div>
     </section>
   );

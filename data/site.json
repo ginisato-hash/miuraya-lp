@@ -1,13 +1,20 @@
 {
   "name": "三浦屋",
   "nameEn": "MIURAYA",
+  "nameEnFull": "Japanese Hostel Miuraya",
   "postalCode": "990-2301",
   "prefecture": "山形県",
+  "prefectureEn": "Yamagata Prefecture",
   "addressLine": "山形市蔵王温泉30-1",
+  "addressLineEn": "30-1 Zao Onsen, Yamagata City",
   "area": "蔵王温泉・高湯通り",
+  "areaEn": "Takayu Street, Zao Onsen",
   "operator": "株式会社Yuge",
+  "operatorEn": "Yuge Co., Ltd.",
   "contactEmail": "miurayazao@yuge-zao.com",
   "roomCount": 7,
   "buildingDescription": "築70年以上の木造建築",
-  "planType": "素泊まり"
+  "buildingDescriptionEn": "a wooden building more than 70 years old",
+  "planType": "素泊まり",
+  "planTypeEn": "room-only (no meals)"
 }
