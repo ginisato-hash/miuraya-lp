@@ -110,7 +110,7 @@ export interface Dictionary {
   stayStyle: {
     heading: string;
     lead: string;
-    steps: { id: string; number: string; heading: string; body?: string }[];
+    steps: { id: string; number: string; heading: string; body?: string[] }[];
   };
   precautions: {
     heading: string;
