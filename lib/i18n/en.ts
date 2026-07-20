@@ -158,14 +158,30 @@ export const en: Dictionary = {
     heading: "How You Stay",
     lead: "A self check-in and self check-out system, where you complete the process yourself following instructions sent in advance.",
     steps: [
-      { id: "check-in", number: "01", heading: "Self Check-in" },
+      {
+        id: "check-in",
+        number: "01",
+        heading: "Self Check-in",
+        body: [
+          "Your room access code will be sent to the email address used for your reservation, either the day before or on the day of your stay, before check-in.",
+          "The code will become valid from 3:00 PM on your check-in date. Please use it to enter your room directly.",
+        ],
+      },
       {
         id: "stay",
         number: "02",
         heading: "Time in the Hot Spring Town",
-        body: "Spend the time before and after heading out into the hot spring town at your own pace.",
+        body: ["Spend the time before and after heading out into the hot spring town at your own pace."],
       },
-      { id: "check-out", number: "03", heading: "Self Check-out" },
+      {
+        id: "check-out",
+        number: "03",
+        heading: "Self Check-out",
+        body: [
+          "Your room access code will expire at 10:00 AM on your check-out date, which completes the check-out process.",
+          "Please make sure you have all of your belongings before leaving.",
+        ],
+      },
     ],
   },
   precautions: {

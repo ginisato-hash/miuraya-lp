@@ -23,7 +23,9 @@ export default function StayStyle({ locale }: { locale: Locale }) {
                 {step.number}
               </span>
               <h3>{step.heading}</h3>
-              {step.body && <p>{step.body}</p>}
+              {step.body?.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </li>
           ))}
         </ol>
